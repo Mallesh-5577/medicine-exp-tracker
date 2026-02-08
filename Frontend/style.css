@@ -23,7 +23,10 @@ input {
   border-right: none;
   font-size: 16px;
   background-color: transparent;
-  color: white;
+  color: #333;
+}
+input::placeholder {
+  color: #999;
 }
 button{
   width: 30%;
@@ -41,7 +44,6 @@ button:hover {
   font-weight: bold;
   border-radius: 30px;
 }
-
 .card {
   width: 50%;
   margin: 10px auto;
