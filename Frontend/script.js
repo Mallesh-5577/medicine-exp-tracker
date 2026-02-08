@@ -1,4 +1,7 @@
-const API = "http://127.0.0.1:1000";
+// Dynamically set API based on environment
+const API = window.location.hostname === 'localhost' 
+  ? "http://localhost:1000" 
+  : window.location.origin;
 
 document.getElementById("medicineForm").onsubmit = async (e) => {
   e.preventDefault();
