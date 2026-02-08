@@ -16,6 +16,28 @@ CORS(app)
 DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "medicine_expiry.db")
 
 
+def init_db():
+    """Initialize database if it doesn't exist"""
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS medicines (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            batch TEXT NOT NULL,
+            expiry TEXT NOT NULL,
+            barcode TEXT NOT NULL,
+            quantity INTEGER NOT NULL
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+
+# Initialize database on startup
+init_db()
+
+
 def get_db():
     return sqlite3.connect(DB_PATH)
 
