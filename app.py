@@ -12,7 +12,7 @@ app = Flask(
     __name__,
     template_folder=os.path.join(os.path.dirname(__file__), "Frontend"),
     static_folder=os.path.join(os.path.dirname(__file__), "Frontend"),
-    static_url_path="/static",
+    static_url_path="",
 )
 CORS(app)
 
